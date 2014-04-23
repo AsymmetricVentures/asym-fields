@@ -38,7 +38,7 @@ setup(
 	name = 'asymmetricbase.fields',
 	version = '{}-{}'.format(version, datetime.now().strftime('%Y%m%d%H%M')),
 	url = url,
-	download_url = '{}/archive/{}.tar.gz'.format(url, version),
+	download_url = '{}/archive/v{}.tar.gz'.format(url, version),
 	author = 'Richard Eames',
 	author_email = 'reames@asymmetricventures.com',
 	packages = find_packages(),
