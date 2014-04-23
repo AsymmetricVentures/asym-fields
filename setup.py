@@ -31,11 +31,14 @@ License :: OSI Approved :: GNU General Public License v2 (GPLv2)
 Topic :: Software Development :: Libraries :: Application Frameworks
 """
 
+version = 'v0.1.0'
+url = 'https://github.com/AsymmetricVentures/asym-fields'
+
 setup(
 	name = 'asymmetricbase.fields',
-	version = 'v0.1.0-{}'.format(datetime.now().strftime('%Y%m%d%H%M')),
-	url = 'https://github.com/AsymmetricVentures/asym-fields',
-	
+	version = '{}-{}'.format(version, datetime.now().strftime('%Y%m%d%H%M')),
+	url = url,
+	download_url = '{}/archive/{}.tar.gz'.format(version),
 	author = 'Richard Eames',
 	author_email = 'reames@asymmetricventures.com',
 	packages = find_packages(),
