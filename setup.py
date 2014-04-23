@@ -34,7 +34,7 @@ Topic :: Software Development :: Libraries :: Application Frameworks
 setup(
 	name = 'asymmetricbase.fields',
 	version = datetime.now().strftime('%Y%m%d%H%M'),
-	url = 'https://github.com/AsymmetricVentures/asymmetricbase',
+	url = 'https://github.com/AsymmetricVentures/asym-fields',
 	
 	author = 'Richard Eames',
 	author_email = 'reames@asymmetricventures.com',
@@ -46,12 +46,7 @@ setup(
 		'django>=1.4.5',
 		'jinja2>=2.7',
 		'pytz',  # most recent
-		'hamlpy',  # most recent,
-		
-		'asymmetricbase.utils',
-		'asymmetricbase.forms',
 	),
-	
 	package_dir = {
 		'asymmetricbase' : 	'asymmetricbase',
 	},

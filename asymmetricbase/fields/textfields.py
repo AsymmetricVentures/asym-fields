@@ -19,8 +19,6 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 from django.db import models
 
-from asymmetricbase.logging import logger # @UnusedImport
-
 '''
 This file adds model fields for character fields of various lengths
 '''
