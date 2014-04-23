@@ -33,13 +33,13 @@ Topic :: Software Development :: Libraries :: Application Frameworks
 
 setup(
 	name = 'asymmetricbase.fields',
-	version = datetime.now().strftime('%Y%m%d%H%M'),
+	version = 'v0.1.0-{}'.format(datetime.now().strftime('%Y%m%d%H%M')),
 	url = 'https://github.com/AsymmetricVentures/asym-fields',
 	
 	author = 'Richard Eames',
 	author_email = 'reames@asymmetricventures.com',
 	packages = find_packages(),
-	classifiers = filter(None, classifiers.split('\n')),
+	classifiers = list(filter(None, classifiers.split('\n'))),
 	namespace_packages = ['asymmetricbase'],
 	
 	install_requires = (
