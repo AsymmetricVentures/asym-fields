@@ -31,7 +31,7 @@ License :: OSI Approved :: GNU General Public License v2 (GPLv2)
 Topic :: Software Development :: Libraries :: Application Frameworks
 """
 
-version = 'v0.1.0'
+version = '0.1.0'
 url = 'https://github.com/AsymmetricVentures/asym-fields'
 
 setup(
