@@ -15,20 +15,22 @@
 #    with this program; if not, write to the Free Software Foundation, Inc.,
 #    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-from __future__ import absolute_import, division, print_function, unicode_literals
-
-from django.db import models
-
 '''
 This file adds model fields for character fields of various lengths
 '''
 
-SHORT_MESSAGE_LENGTH = 140
-LONG_MESSAGE_LENGTH = 255
-SHORT_NAME_LENGTH = 50
-LONG_NAME_LENGTH = (SHORT_MESSAGE_LENGTH * 2) + 5 #285
+from __future__ import absolute_import, division, print_function, unicode_literals
 
-COMMENT_LENGTH = 1024
+from django.conf import settings
+from django.db import models
+
+
+SHORT_MESSAGE_LENGTH = getattr(settings, 'SHORT_MESSAGE_LENGTH', 140)
+LONG_MESSAGE_LENGTH = getattr(settings, 'LONG_MESSAGE_LENGTH', 255)
+SHORT_NAME_LENGTH = getattr(settings, 'SHORT_NAME_LENGTH', 50)
+LONG_NAME_LENGTH = getattr(settings, 'LONG_NAME_LENGTH', (SHORT_MESSAGE_LENGTH * 2) + 5) #285
+
+COMMENT_LENGTH = getattr(settings, 'COMMENT_LENGTH', 1024)
 
 class ShortMessageField(models.CharField):
 	def __init__(self, *args, **kwargs):

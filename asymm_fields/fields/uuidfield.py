@@ -37,7 +37,7 @@ class UUIDField(models.CharField):
 			kls = model_instance.__class__
 			for _ in range(100):
 				new_uuid = uuid.uuid4().hex[0:10]
-				if not kls.objects.filter(uuid = new_uuid).exists():
+				if not kls.objects.filter(**{self.attname : new_uuid}).exists():
 					setattr(model_instance, self.attname, new_uuid)
 					return new_uuid
 			raise IntegrityError('Unable to generate a unique uuid for model: {}'.format(kls))
