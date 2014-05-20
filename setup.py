@@ -35,7 +35,7 @@ version = '0.2.0'
 url = 'https://github.com/AsymmetricVentures/asym-fields'
 
 setup(
-	name = 'asymm_fields',
+	name = 'asymm-fields',
 	version = '{}-{}'.format(version, datetime.now().strftime('%Y%m%d%H%M')),
 	url = url,
 	download_url = '{}/archive/v{}.tar.gz'.format(url, version),
