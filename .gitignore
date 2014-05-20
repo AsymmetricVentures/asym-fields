@@ -4,3 +4,4 @@ dist
 asymmetricbase.fields.egg-info
 .project
 __pycache__
+*.pyc
