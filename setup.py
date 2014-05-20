@@ -31,11 +31,11 @@ License :: OSI Approved :: GNU General Public License v2 (GPLv2)
 Topic :: Software Development :: Libraries :: Application Frameworks
 """
 
-version = '0.1.0'
+version = '0.2.0'
 url = 'https://github.com/AsymmetricVentures/asym-fields'
 
 setup(
-	name = 'asymmetricbase.fields',
+	name = 'asymm_fields',
 	version = '{}-{}'.format(version, datetime.now().strftime('%Y%m%d%H%M')),
 	url = url,
 	download_url = '{}/archive/v{}.tar.gz'.format(url, version),
@@ -43,15 +43,12 @@ setup(
 	author_email = 'reames@asymmetricventures.com',
 	packages = find_packages(),
 	classifiers = list(filter(None, classifiers.split('\n'))),
-	namespace_packages = ['asymmetricbase'],
 	
 	install_requires = (
 		'django>=1.4.5',
 		'jinja2>=2.7',
 		'pytz',  # most recent
 	),
-	package_dir = {
-		'asymmetricbase' : 	'asymmetricbase',
-	},
-	package_data = {'' : ['*.djhtml']}
+	
+	test_suite = 'run_tests.main'
 )
