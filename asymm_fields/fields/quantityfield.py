@@ -35,6 +35,6 @@ class QtyField(models.DecimalField):
 try:
 	from south.modelsinspector import add_introspection_rules
 	
-	add_introspection_rules([], ['^asymmetricbase\.fields\.quantityfield\.QtyField'])
+	add_introspection_rules([], ['^asymm_fields\.fields\.quantityfield\.QtyField'])
 except ImportError:
 	pass

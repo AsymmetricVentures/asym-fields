@@ -17,24 +17,26 @@
 
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-from decimal import Decimal
+from django.db.models import IntegerField
 
-from django.db import models
-
-ZERO_DOLLARS = Decimal('0.00')
-
-class DollarField(models.DecimalField):
-	
+class IntegerRangeField(IntegerField):
 	def __init__(self, *args, **kwargs):
-		kwargs.setdefault('default', ZERO_DOLLARS)
-		kwargs.setdefault('max_digits', 15)
-		kwargs.setdefault('decimal_places', 2)
+		self.min_value = kwargs.pop('min_value', 0)
+		self.max_value = kwargs.pop('max_value', None)
 		
-		super(DollarField, self).__init__(*args, **kwargs)
+		super(IntegerRangeField, self).__init__(*args, **kwargs)
+		
+	def formfield(self, **kwargs):
+		defaults = {
+			'min_value': self.min_value,
+			'max_value': self.max_value,
+		}
+		defaults.update(kwargs)
+		return super(IntegerRangeField, self).formfield(**defaults)
 
 try:
 	from south.modelsinspector import add_introspection_rules
 	
-	add_introspection_rules([], ['^asymmetricbase\.fields\.dollarfield\.DollarField'])
+	add_introspection_rules([], ['^asymm_fields\.fields\.rangefield\.IntegerRangeField'])
 except ImportError:
 	pass

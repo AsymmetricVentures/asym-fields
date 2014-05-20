@@ -59,11 +59,11 @@ try:
 	from south.modelsinspector import add_introspection_rules
 
 	add_introspection_rules([], [
-		'^asymmetricbase\.fields\.textfields\.ShortMessageField',
-		'^asymmetricbase\.fields\.textfields\.LongMessageField',
-		'^asymmetricbase\.fields\.textfields\.ShortNameField',
-		'^asymmetricbase\.fields\.textfields\.LongNameField',
-		'^asymmetricbase\.fields\.textfields\.CommentField',
+		'^asymm_fields\.fields\.textfields\.ShortMessageField',
+		'^asymm_fields\.fields\.textfields\.LongMessageField',
+		'^asymm_fields\.fields\.textfields\.ShortNameField',
+		'^asymm_fields\.fields\.textfields\.LongNameField',
+		'^asymm_fields\.fields\.textfields\.CommentField',
 	])
 except ImportError:
 	pass

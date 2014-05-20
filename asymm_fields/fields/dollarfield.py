@@ -17,37 +17,24 @@
 
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-import uuid
+from decimal import Decimal
 
 from django.db import models
-from django.db.utils import IntegrityError
 
-class UUIDField(models.CharField):
+ZERO_DOLLARS = Decimal('0.00')
+
+class DollarField(models.DecimalField):
 	
 	def __init__(self, *args, **kwargs):
-		kwargs['max_length'] = 40
-		kwargs['blank'] = True
-		kwargs['db_index'] = True
-		self.auto_add = kwargs.pop('auto_add', True)
+		kwargs.setdefault('default', ZERO_DOLLARS)
+		kwargs.setdefault('max_digits', 15)
+		kwargs.setdefault('decimal_places', 2)
 		
-		super(UUIDField, self).__init__(*args, **kwargs)
-	
-	def pre_save(self, model_instance, add):
-		if (self.auto_add and add):
-			kls = model_instance.__class__
-			for _ in range(100):
-				new_uuid = uuid.uuid4().hex[0:10]
-				if not kls.objects.filter(uuid = new_uuid).exists():
-					setattr(model_instance, self.attname, new_uuid)
-					return new_uuid
-			raise IntegrityError('Unable to generate a unique uuid for model: {}'.format(kls))
-		
-		else:
-			return super(UUIDField, self).pre_save(model_instance, add)
+		super(DollarField, self).__init__(*args, **kwargs)
 
 try:
 	from south.modelsinspector import add_introspection_rules
 	
-	add_introspection_rules([], ['^asymmetricbase\.fields\.uuidfield\.UUIDField'])
+	add_introspection_rules([], ['^asymm_fields\.fields\.dollarfield\.DollarField'])
 except ImportError:
 	pass
