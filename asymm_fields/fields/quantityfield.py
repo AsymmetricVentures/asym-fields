@@ -21,7 +21,7 @@ from decimal import Decimal
 
 from django.db import models
 
-ZERO_QTY = Decimal('0.00')
+ZERO_DOLLARS = ZERO_QTY = Decimal('0.00')
 
 class QtyField(models.DecimalField):
 	
@@ -32,9 +32,12 @@ class QtyField(models.DecimalField):
 		
 		super(QtyField, self).__init__(*args, **kwargs)
 
+DollarField = QtyField
+
 try:
 	from south.modelsinspector import add_introspection_rules
 	
 	add_introspection_rules([], ['^asymm_fields\.fields\.quantityfield\.QtyField'])
+	add_introspection_rules([], ['^asymm_fields\.fields\.quantityfield\.DollarField'])
 except ImportError:
 	pass
