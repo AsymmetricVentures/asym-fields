@@ -1,7 +1,9 @@
 .pydevproject
 .settings
 dist
-asymmetricbase.fields.egg-info
+build
+*.egg-info
 .project
 __pycache__
 *.pyc
+*~
